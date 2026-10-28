@@ -1,0 +1,25 @@
+meta {
+  name: Echo Request Vars
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{host}}/echo?source=bruno-lab
+  body: none
+  auth: none
+}
+
+script:pre-request {
+  bru.setVar("marker", "sent-by-the-pre-request-script");
+}
+
+headers {
+  X-Lab-Marker: {{marker}}
+}
+
+assert {
+  res.status: eq 200
+  res.body.query.source: eq bruno-lab
+  res.body.headers["X-Lab-Marker"]: eq sent-by-the-pre-request-script
+}

@@ -1,0 +1,45 @@
+bru — the distilled commands
+====================================================================
+Placeholders: <collection> is a collection
+folder; <name> is an environment name.
+
+INSTALL (chapter 3)
+--------------------------------------------------------------------
+  npm install -g @usebruno/cli     # needs Node.js
+  bru --version                    # the lab's answer: 4.3.0
+  bru run --help                   # flags, in the tool's words
+
+THE LAB'S SERVER (chapter 4)
+--------------------------------------------------------------------
+  python3 bruno-lab/server/fixture_api.py 18080
+                                   # loopback only; Ctrl-C stops
+  curl http://127.0.0.1:18080/health
+                                   # prove the server by itself
+
+RUNNING REQUESTS (chapters 5, 11)
+--------------------------------------------------------------------
+  bru run "health check.bru" --env local
+                                   # one file; quotes for spaces
+  bru run . --env local            # the whole collection
+  bru run . --env local -r         # recurse into subfolders
+  bru run . --env local --bail     # stop at the first failure
+
+ENVIRONMENTS AND SECRETS (chapters 7-8)
+--------------------------------------------------------------------
+  # A .env file value reaches {{process.env.NAME}};
+  # it does NOT feed a plain {{NAME}}:
+  bru run . --env local --env-var apiToken=lab-token-123
+                                   # a secret's value, this run
+                                   # only, no file changed
+
+REPORTS (chapter 11)
+--------------------------------------------------------------------
+  bru run . --env local --reporter-json results.json
+  bru run . --env local --reporter-junit results.xml
+  bru run . --env local --reporter-html results.html
+  # exit code: 0 = everything passed, 1 = anything did not
+
+GIT (chapter 12)
+--------------------------------------------------------------------
+  git grep -n "the-secret-value"   # must find nothing tracked;
+                                   # a hit means rotate, not edit

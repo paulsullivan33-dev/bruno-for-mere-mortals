@@ -1,0 +1,13 @@
+$ curl http://127.0.0.1:18080/health
+{"status": "ok"}
+$ curl http://127.0.0.1:18080/books
+[{"id": 1, "title": "The Left Hand of Darkness", "author": "Ursula K. Le Guin", "inStock": 4}, {"id": 2, "title": "A Wizard of Earthsea", "author": "Ursula K. Le Guin", "inStock": 7}, {"id": 3, "title": "The Dispossessed", "author": "Ursula K. Le Guin", "inStock": 0}]
+$ curl -i http://127.0.0.1:18080/missing
+HTTP/1.1 404 Not Found
+Server: BaseHTTP/0.6 Python/3.12.3
+Date: Wed, 28 Oct 2026 11:59:00 GMT
+Content-Type: application/json
+Content-Length: 29
+
+$ curl http://127.0.0.1:18080/whoami   (no token)
+{"error": "missing or bad token"}

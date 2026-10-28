@@ -1,0 +1,30 @@
+site_name: Bruno for Mere Mortals
+site_description: An API client that keeps your requests as plain text files in a folder you own. Writing requests by hand, checking answers with assertions and tests, keeping secrets out of the files, and running the whole collection from the command line, with the limits stated plainly.
+site_url: https://paulsullivan33-dev.github.io/bruno-for-mere-mortals/
+copyright: 'Part of <a href="https://paulsullivan33-dev.github.io/mere-mortals/">For Mere Mortals</a> · Text <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, code MIT'
+
+# Guides live at the repo root (nice for GitHub browsing).
+# The deploy workflow copies them into docs/ before building.
+theme:
+  name: material
+
+nav:
+  - Home: index.md
+  - What Bruno Is: what-bruno-is.md
+  - The Moving Parts: the-moving-parts.md
+  - Installing Bruno: installing-bruno.md
+  - A Practice API: a-practice-api.md
+  - Your First Request: your-first-request.md
+  - Reading a Request File: reading-a-request-file.md
+  - Environments and Variables: environments-and-variables.md
+  - Secrets: secrets.md
+  - Assertions: assertions.md
+  - Tests and Scripts: tests-and-scripts.md
+  - Running Collections: running-collections.md
+  - Collections in Git: collections-in-git.md
+  - Recipes: recipes.md
+  - The Neighbours: the-neighbours.md
+  - Limits: limits.md
+  - Troubleshooting: troubleshooting.md
+  - Glossary: glossary.md
+  - Writing Criteria: criteria.md

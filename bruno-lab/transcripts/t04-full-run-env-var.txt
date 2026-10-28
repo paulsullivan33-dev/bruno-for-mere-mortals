@@ -1,0 +1,44 @@
+=== B: value supplied on the command line
+health check (200 OK) - 12 ms
+Assertions
+   ✓ res.status: eq 200
+   ✓ res.body.status: eq ok
+list books (200 OK) - 15 ms
+Assertions
+   ✓ res.status: eq 200
+   ✓ res.body: isArray
+   ✓ res.body: length 3
+   ✓ res.body[0].author: eq Ursula K. Le Guin
+get one book (200 OK) - 5 ms
+Tests
+   ✓ status is 200
+   ✓ the book is A Wizard of Earthsea
+place an order (201 Created) - 4 ms
+Tests
+   ✓ order is created
+   ✓ the server echoes what it was sent
+who am i (200 OK) - 5 ms
+Assertions
+   ✓ res.status: eq 200
+   ✓ res.body.user: eq stockroom
+echo request vars (200 OK) - 6 ms
+Assertions
+   ✓ res.status: eq 200
+   ✓ res.body.query.source: eq bruno-lab
+   ✓ res.body.headers["X-Lab-Marker"]: eq sent-by-the-pre-request-script
+
+📊 Execution Summary
+┌───────────────┬──────────────┐
+│ Metric        │    Result    │
+├───────────────┼──────────────┤
+│ Status        │    ✓ PASS    │
+├───────────────┼──────────────┤
+│ Requests      │ 6 (6 Passed) │
+├───────────────┼──────────────┤
+│ Tests         │     4/4      │
+├───────────────┼──────────────┤
+│ Assertions    │    11/11     │
+├───────────────┼──────────────┤
+│ Duration (ms) │     1018     │
+└───────────────┴──────────────┘
+bru exit code: 0

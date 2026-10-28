@@ -1,0 +1,18 @@
+meta {
+  name: List Books
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{host}}/books
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 200
+  res.body: isArray
+  res.body: length 3
+  res.body[0].author: eq Ursula K. Le Guin
+}

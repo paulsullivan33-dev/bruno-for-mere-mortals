@@ -1,0 +1,21 @@
+$ bru run "health check.bru" --env local
+health check (200 OK) - 23 ms
+Assertions
+   ✓ res.status: eq 200
+   ✓ res.body.status: eq ok
+
+📊 Execution Summary
+┌───────────────┬──────────────┐
+│ Metric        │    Result    │
+├───────────────┼──────────────┤
+│ Status        │    ✓ PASS    │
+├───────────────┼──────────────┤
+│ Requests      │ 1 (1 Passed) │
+├───────────────┼──────────────┤
+│ Tests         │     0/0      │
+├───────────────┼──────────────┤
+│ Assertions    │     2/2      │
+├───────────────┼──────────────┤
+│ Duration (ms) │     197      │
+└───────────────┴──────────────┘
+bru exit code: 0

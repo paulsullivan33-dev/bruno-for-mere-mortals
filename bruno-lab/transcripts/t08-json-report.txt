@@ -1,0 +1,53 @@
+$ bru run . --env local --env-var apiToken=lab-token-123 --reporter-json results.json >/dev/null
+bru exit code: 0
+$ python3 -m json.tool results.json | head -50
+[
+    {
+        "iterationIndex": 0,
+        "results": [
+            {
+                "test": {
+                    "filename": "health check.bru"
+                },
+                "request": {
+                    "method": "GET",
+                    "url": "http://127.0.0.1:18080/health",
+                    "headers": {
+                        "Accept": "application/json, text/plain, */*",
+                        "User-Agent": "bruno-runtime/4.3.0",
+                        "Accept-Encoding": "gzip, compress, deflate, br",
+                        "Host": "127.0.0.1:18080",
+                        "Connection": "keep-alive",
+                        "content-type": null
+                    }
+                },
+                "response": {
+                    "status": 200,
+                    "statusText": "OK",
+                    "headers": {
+                        "server": "BaseHTTP/0.6 Python/3.12.3",
+                        "date": "Wed, 28 Oct 2026 12:01:36 GMT",
+                        "content-type": "application/json",
+                        "content-length": "16"
+                    },
+                    "data": {
+                        "status": "ok"
+                    },
+                    "url": "http://127.0.0.1/health",
+                    "responseTime": 12,
+                    "duration": 12,
+                    "size": 16
+                },
+                "error": null,
+                "status": "pass",
+                "assertionResults": [
+                    {
+                        "uid": "xUZatPTqB4_5d-SoexRyp",
+                        "lhsExpr": "res.status",
+                        "rhsExpr": "eq 200",
+                        "rhsOperand": "200",
+                        "operator": "eq",
+                        "status": "pass"
+                    },
+                    {
+                        "uid": "bK6veeLNmg9w-K5h97CLv",

@@ -1,0 +1,23 @@
+meta {
+  name: Get One Book
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{host}}/books/2
+  body: none
+  auth: none
+}
+
+tests {
+  test("status is 200", function() {
+    expect(res.getStatus()).to.equal(200);
+  });
+
+  test("the book is A Wizard of Earthsea", function() {
+    const body = res.getBody();
+    expect(body.title).to.equal("A Wizard of Earthsea");
+    expect(body.inStock).to.be.above(0);
+  });
+}

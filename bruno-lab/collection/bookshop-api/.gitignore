@@ -1,0 +1,3 @@
+# The one file that holds real secret values. Everything else
+# in this collection is safe to commit; this one is not.
+.env

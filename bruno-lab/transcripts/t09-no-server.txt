@@ -1,0 +1,21 @@
+$ bru run "health check.bru" --env local    (with the fixture server stopped)
+health check (connect ECONNREFUSED 127.0.0.1:18080)
+
+📊 Execution Summary
+┌───────────────┬──────────────┐
+│ Metric        │    Result    │
+├───────────────┼──────────────┤
+│ Status        │    ✗ FAIL    │
+├───────────────┼──────────────┤
+│ Requests      │ 1 (1 Failed) │
+├───────────────┼──────────────┤
+│ Tests         │     0/0      │
+├───────────────┼──────────────┤
+│ Assertions    │     0/0      │
+├───────────────┼──────────────┤
+│ Duration (ms) │      88      │
+└───────────────┴──────────────┘
+bru exit code: 1
+
+$ bru run . --env staging    (an environment that does not exist)
+Environment file not found: environments/staging.bru

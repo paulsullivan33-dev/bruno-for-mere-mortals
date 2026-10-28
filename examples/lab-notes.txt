@@ -1,0 +1,43 @@
+The lab — one real CLI, one machine, nobody else's API
+====================================================================
+
+The lab is Bruno's command line runner as npm ships it,
+installed under a scratch prefix on the build machine (an
+Ubuntu 24.04 sandbox, Python 3.12.3, Node.js 24.22.1):
+
+  * Bruno CLI 4.3.0 (@usebruno/cli), installed with
+    npm install -g @usebruno/cli, with npm's prefix and
+    cache redirected into the lab's scratch folder so the
+    machine's global state never changed.
+  * A fixture API written for the guide
+    (bruno-lab/server/fixture_api.py): Python standard
+    library only, loopback only, an invented bookshop's
+    stock room — health, a three-book catalogue, an order
+    endpoint that echoes its body, an echo endpoint, and
+    one door (/whoami) that opens only for the invented
+    token lab-token-123.
+  * A six-request collection written by hand as files
+    (bruno-lab/collection/bookshop-api/): assertions,
+    JavaScript tests, one pre-request script, one secret
+    declared and never valued in the files.
+
+What the lab ran for real is listed in criteria.md; the
+transcripts are bruno-lab/transcripts/. The desktop app
+never ran — the machine has no desktop — and everything
+the guide says about it is labelled documented-only.
+
+Three honest bruises, kept in the transcripts on purpose:
+
+  * The secrets grammar moved: vars:secret { } (the older
+    block form) is a parse error in 4.3.0; the array form
+    vars:secret [ apiToken ] is what parses (t90).
+  * A .env file does not feed {{apiToken}}; those values
+    are the process environment, reached only as
+    {{process.env.apiToken}} (t05 vs t05b).
+  * A dotted assertion path through a hyphenated key
+    (res.body.headers.X-Lab-Marker) is read as arithmetic
+    and fails with a ReferenceError as the "actual" value;
+    brackets fix it (t03 vs t04).
+
+Everything ran on loopback. No request left the machine,
+and the only secret anywhere in the lab unlocks a fiction.

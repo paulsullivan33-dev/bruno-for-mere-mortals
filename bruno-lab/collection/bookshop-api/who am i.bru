@@ -1,0 +1,20 @@
+meta {
+  name: Who Am I
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{host}}/whoami
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{apiToken}}
+}
+
+assert {
+  res.status: eq 200
+  res.body.user: eq stockroom
+}

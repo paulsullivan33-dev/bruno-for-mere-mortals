@@ -1,0 +1,33 @@
+$ find . -type f | sort
+./.env
+./.gitignore
+./bruno.json
+./echo request vars.bru
+./environments/local.bru
+./get one book.bru
+./health check.bru
+./list books.bru
+./place an order.bru
+./who am i.bru
+$ git init -q && git add -A && git status --short
+A  .gitignore
+A  bruno.json
+A  "echo request vars.bru"
+A  environments/local.bru
+A  "get one book.bru"
+A  "health check.bru"
+A  "list books.bru"
+A  "place an order.bru"
+A  "who am i.bru"
+$ git -c user.name=Lab -c user.email=lab@example.invalid commit -qm "Bookshop collection" && git ls-files
+.gitignore
+bruno.json
+echo request vars.bru
+environments/local.bru
+get one book.bru
+health check.bru
+list books.bru
+place an order.bru
+who am i.bru
+$ git grep -n "lab-token-123" || echo "no tracked file contains the token value"
+no tracked file contains the token value

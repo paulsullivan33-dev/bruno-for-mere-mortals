@@ -1,0 +1,31 @@
+meta {
+  name: Place an Order
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{host}}/orders
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "bookId": 2,
+    "quantity": 3
+  }
+}
+
+tests {
+  test("order is created", function() {
+    expect(res.getStatus()).to.equal(201);
+  });
+
+  test("the server echoes what it was sent", function() {
+    const body = res.getBody();
+    expect(body.orderId).to.equal(42);
+    expect(body.received.bookId).to.equal(2);
+    expect(body.received.quantity).to.equal(3);
+  });
+}

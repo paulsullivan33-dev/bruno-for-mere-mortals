@@ -1,0 +1,22 @@
+$ bru run . --env local    (one expectation is deliberately wrong: the lab set inStock to 7, the test claims 5)
+get one book (200 OK) - 21 ms
+Tests
+   ✕ the stock count is five
+      expected 7 to equal 5
+   ✓ the book is A Wizard of Earthsea
+
+📊 Execution Summary
+┌───────────────┬──────────────┐
+│ Metric        │    Result    │
+├───────────────┼──────────────┤
+│ Status        │    ✗ FAIL    │
+├───────────────┼──────────────┤
+│ Requests      │ 1 (1 Failed) │
+├───────────────┼──────────────┤
+│ Tests         │     1/2      │
+├───────────────┼──────────────┤
+│ Assertions    │     0/0      │
+├───────────────┼──────────────┤
+│ Duration (ms) │     540      │
+└───────────────┴──────────────┘
+bru exit code: 1
